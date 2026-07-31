@@ -1,26 +1,21 @@
+import {createPulseController} from '../pulse';
+
 const SIZE_LIST = ['small', 'medium', 'large'];
 
 Component({
-    options: {
-        virtualHost: true
-    },
     properties: {
-        // 为 true 时显示占位，反之展示子节点
         loading: {
             type: Boolean,
             value: true
         },
-        // 是否展示动画
         animate: {
             type: Boolean,
             value: false
         },
-        // 按钮尺寸：small / medium / large
         size: {
             type: String,
             value: 'medium'
         },
-        // 根节点自定义样式
         customStyle: {
             type: String,
             value: ''
@@ -28,16 +23,22 @@ Component({
     },
     data: {
         showSkeleton: true,
-        rootClass: '',
-        rootStyle: ''
+        sizeClass: 'mx-skeleton-button-medium',
+        pulseAni: null
     },
     observers: {
-        'loading, animate, size, customStyle': function () {
+        'loading, animate, size': function () {
             this._sync();
         }
     },
-    attached() {
-        this._sync();
+    lifetimes: {
+        attached() {
+            this._pulse = createPulseController(this);
+            this._sync();
+        },
+        detached() {
+            if (this._pulse) this._pulse.stop();
+        }
     },
     methods: {
         _resolveSize(size) {
@@ -46,20 +47,14 @@ Component({
         },
 
         _sync() {
-            const {loading, animate, size, customStyle} = this.data;
+            const {loading, animate, size} = this.data;
             const showSkeleton = loading !== false;
-            const resolvedSize = this._resolveSize(size);
-            const rootClass = [
-                'mx-skeleton-button',
-                `mx-skeleton-button-${resolvedSize}`,
-                animate ? 'mx-skeleton-animate' : ''
-            ].filter(Boolean).join(' ');
-
             this.setData({
                 showSkeleton,
-                rootClass,
-                rootStyle: customStyle || ''
+                sizeClass: `mx-skeleton-button-${this._resolveSize(size)}`
             });
+            if (!this._pulse) this._pulse = createPulseController(this);
+            this._pulse.sync(!!animate, showSkeleton);
         }
     }
 });

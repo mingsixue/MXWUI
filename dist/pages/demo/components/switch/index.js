@@ -1,0 +1,1 @@
+import XCX from"../../../../utils/index";Page({data:{propDocs:[{prop:"checked",values:"true / false",required:"选填",type:"Boolean"},{prop:"disabled",values:"true / false",required:"选填",type:"Boolean"},{prop:"color",values:"默认 COLOR.BG_COLOR",required:"选填",type:"String"}],navHeight:XCX.getNavHeight()},changeSwitch(e){console.log("🔥🔥🔥 switch",e.detail)}});

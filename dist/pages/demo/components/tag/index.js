@@ -1,0 +1,1 @@
+import XCX from"../../../../utils/index";Page({data:{propDocs:[{prop:"text",values:"-",required:"选填",type:"String"},{prop:"textColor",values:"默认 COLOR.THEME_COLOR",required:"选填",type:"String"},{prop:"borderColor",values:"默认 COLOR.THEME_COLOR",required:"选填",type:"String"},{prop:"bgColor",values:"默认 COLOR.WHITE_COLOR",required:"选填",type:"String"}],navHeight:XCX.getNavHeight()}});

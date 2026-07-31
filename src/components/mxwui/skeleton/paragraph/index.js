@@ -1,24 +1,19 @@
+import {createPulseController} from '../pulse';
+
 Component({
-    options: {
-        virtualHost: true
-    },
     properties: {
-        // 为 true 时显示占位，反之展示子节点
         loading: {
             type: Boolean,
             value: true
         },
-        // 是否展示动画
         animate: {
             type: Boolean,
             value: false
         },
-        // 段落行数，大于 0 展示
         rows: {
             type: null,
             value: 3
         },
-        // 根节点自定义样式
         customStyle: {
             type: String,
             value: ''
@@ -27,17 +22,21 @@ Component({
     data: {
         showSkeleton: true,
         rowList: [],
-        animateOn: false,
-        rootClass: '',
-        rootStyle: ''
+        pulseAni: null
     },
     observers: {
-        'loading, animate, rows, customStyle': function () {
+        'loading, animate, rows': function () {
             this._sync();
         }
     },
-    attached() {
-        this._sync();
+    lifetimes: {
+        attached() {
+            this._pulse = createPulseController(this);
+            this._sync();
+        },
+        detached() {
+            if (this._pulse) this._pulse.stop();
+        }
     },
     methods: {
         _resolveRows(rows) {
@@ -47,7 +46,7 @@ Component({
         },
 
         _sync() {
-            const {loading, animate, rows, customStyle} = this.data;
+            const {loading, animate, rows} = this.data;
             const showSkeleton = loading !== false;
             const count = this._resolveRows(rows);
             const rowList = [];
@@ -58,13 +57,9 @@ Component({
                 });
             }
 
-            this.setData({
-                showSkeleton,
-                rowList,
-                animateOn: !!animate,
-                rootClass: 'mx-skeleton-paragraph',
-                rootStyle: customStyle || ''
-            });
+            this.setData({showSkeleton, rowList});
+            if (!this._pulse) this._pulse = createPulseController(this);
+            this._pulse.sync(!!animate, showSkeleton);
         }
     }
 });

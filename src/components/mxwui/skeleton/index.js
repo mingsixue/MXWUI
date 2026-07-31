@@ -1,3 +1,5 @@
+import {createPulseController} from './pulse';
+
 const SHAPE_LIST = ['circle', 'square'];
 const SIZE_LIST = ['x-small', 'small', 'medium', 'large'];
 
@@ -52,18 +54,25 @@ Component({
         showAvatar: false,
         showTitle: true,
         showParagraph: true,
-        paragraphRows: 3,
-        resolvedAvatarSize: 'medium',
-        resolvedAvatarShape: 'square',
-        rootStyle: ''
+        rowList: [],
+        avatarClass: 'mx-skeleton-avatar-square mx-skeleton-avatar-medium',
+        avatarStyle: '',
+        rootStyle: '',
+        pulseAni: null
     },
     observers: {
         'loading, animate, avatar, title, rows, avatarSize, avatarShape, customStyle': function () {
             this._sync();
         }
     },
-    attached() {
-        this._sync();
+    lifetimes: {
+        attached() {
+            this._pulse = createPulseController(this);
+            this._sync();
+        },
+        detached() {
+            if (this._pulse) this._pulse.stop();
+        }
     },
     methods: {
         _resolveShape(shape) {
@@ -72,9 +81,14 @@ Component({
         },
 
         _resolveSize(size) {
-            if (SIZE_LIST.indexOf(size) >= 0) return size;
-            if (typeof size === 'string' && size.trim()) return size.trim();
-            return 'medium';
+            if (SIZE_LIST.indexOf(size) >= 0) {
+                return {preset: size, style: ''};
+            }
+            if (typeof size === 'string' && size.trim()) {
+                const val = size.trim();
+                return {preset: '', style: `width:${val};height:${val};`};
+            }
+            return {preset: 'medium', style: ''};
         },
 
         _resolveRows(rows) {
@@ -86,6 +100,7 @@ Component({
         _sync() {
             const {
                 loading,
+                animate,
                 avatar,
                 title,
                 rows,
@@ -95,17 +110,34 @@ Component({
             } = this.data;
 
             const paragraphRows = this._resolveRows(rows);
+            const rowList = [];
+            for (let i = 0; i < paragraphRows; i++) {
+                rowList.push({
+                    index: i,
+                    last: i === paragraphRows - 1 && paragraphRows > 1
+                });
+            }
+
+            const sizeInfo = this._resolveSize(avatarSize);
+            const shape = this._resolveShape(avatarShape);
+            const avatarClass = [
+                `mx-skeleton-avatar-${shape}`,
+                sizeInfo.preset ? `mx-skeleton-avatar-${sizeInfo.preset}` : ''
+            ].filter(Boolean).join(' ');
 
             this.setData({
                 showSkeleton: loading !== false,
                 showAvatar: !!avatar,
                 showTitle: title !== false,
                 showParagraph: paragraphRows > 0,
-                paragraphRows,
-                resolvedAvatarSize: this._resolveSize(avatarSize),
-                resolvedAvatarShape: this._resolveShape(avatarShape),
+                rowList,
+                avatarClass,
+                avatarStyle: sizeInfo.style,
                 rootStyle: customStyle || ''
             });
+
+            if (!this._pulse) this._pulse = createPulseController(this);
+            this._pulse.sync(!!animate, loading !== false);
         }
     }
 });

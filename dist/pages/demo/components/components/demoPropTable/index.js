@@ -1,0 +1,1 @@
+Component({properties:{dataSource:{type:Array,value:[]}},data:{columns:[{title:"属性",dataIndex:"prop",key:"prop",width:300,fixed:!0},{title:"属性值",dataIndex:"values",key:"values",width:320},{title:"必填/选填",dataIndex:"required",key:"required",width:160,align:"center"},{title:"属性值类型",dataIndex:"type",key:"type",width:180,align:"center"}]}});

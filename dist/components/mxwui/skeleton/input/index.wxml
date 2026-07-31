@@ -1,1 +1,1 @@
-<view wx:if="{{showSkeleton}}" class="{{rootClass}}" style="{{rootStyle}}" ></view><slot wx:else /> 
+<view wx:if="{{showSkeleton}}" class="mx-skeleton-input" style="{{customStyle}}" animation="{{pulseAni}}" ></view><slot wx:else /> 

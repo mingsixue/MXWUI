@@ -1,0 +1,1 @@
+import XCX from"../../utils/index";Page({data:{navHeight:XCX.getNavHeight(),scales:[{value:8,name:"紧凑"},{value:12,name:"紧密"},{value:16,name:"较小"},{value:24,name:"常规"},{value:32,name:"宽松"},{value:48,name:"区块"}]}});

@@ -1,0 +1,1 @@
+import XCX from"../../../../utils/index";Page({data:{propDocs:[{prop:"bgColor",values:"默认 COLOR.WHITE_COLOR",required:"选填",type:"String"},{prop:"zIndex",values:"默认 1",required:"选填",type:"Number"}],navHeight:XCX.getNavHeight()},handleTap(){console.log("🔥🔥🔥 接收到了点击事件")}});

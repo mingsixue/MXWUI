@@ -1,6 +1,7 @@
 <view
     wx:if="{{showSkeleton}}"
-    class="{{rootClass}}"
-    style="{{rootStyle}}"
+    class="mx-skeleton-avatar {{shapeClass}} {{sizeClass}}"
+    style="{{sizeStyle}}"
+    animation="{{pulseAni}}"
 ></view>
 <slot wx:else />

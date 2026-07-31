@@ -1,7 +1,8 @@
 <view
     wx:if="{{showSkeleton}}"
-    class="{{rootClass}}"
-    style="{{rootStyle}}"
+    class="mx-skeleton-custom"
+    style="{{customStyle}}"
+    animation="{{pulseAni}}"
 >
     <slot />
 </view>
