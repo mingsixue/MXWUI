@@ -6,6 +6,10 @@
 
 <img src="../imgs/components/Table.PNG" alt="Table" width="280" />
 
+## 扫码查看
+
+![扫码查看](../imgs/table_qrcode.png)
+
 ## 基础用法
 页面 `.json` 文件 `usingComponents` 中引入组件
 ```json

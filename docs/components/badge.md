@@ -6,6 +6,10 @@
 
 <img src="../imgs/components/Badge.PNG" alt="Badge" width="280" />
 
+## 扫码查看
+
+![扫码查看](../imgs/badge_qrcode.png)
+
 ## 基础用法
 页面 `.json` 文件 `usingComponents` 中引入组件
 ```json

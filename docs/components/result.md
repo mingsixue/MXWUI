@@ -8,6 +8,10 @@
 <img src="../imgs/components/Result2.PNG" alt="Result 2" width="280" />
 <img src="../imgs/components/Result3.PNG" alt="Result 3" width="280" />
 
+## 扫码查看
+
+![扫码查看](../imgs/result_qrcode.png)
+
 ## 基础用法
 页面 `.json` 文件 `usingComponents` 中引入组件
 ```json

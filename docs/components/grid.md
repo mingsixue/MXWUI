@@ -7,6 +7,10 @@
 <img src="../imgs/components/Grid.PNG" alt="Grid" width="280" />
 <img src="../imgs/components/Grid2.PNG" alt="Grid 2" width="280" />
 
+## 扫码查看
+
+![扫码查看](../imgs/grid_qrcode.png)
+
 ## 基础用法
 页面 `.json` 文件 `usingComponents` 中引入组件
 ```json

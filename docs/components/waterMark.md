@@ -7,6 +7,10 @@
 <img src="../imgs/components/WaterMark.png" alt="WaterMark" width="280" />
 <img src="../imgs/components/WaterMark2.png" alt="WaterMark 2" width="280" />
 
+## 扫码查看
+
+![扫码查看](../imgs/waterMark_qrcode.png)
+
 ## 基础用法
 页面 `.json` 文件 `usingComponents` 中引入组件
 ```json

@@ -7,6 +7,10 @@
 <img src="../imgs/components/Sticky.PNG" alt="Sticky" width="280" />
 <img src="../imgs/components/Sticky2.PNG" alt="Sticky 2" width="280" />
 
+## 扫码查看
+
+![扫码查看](../imgs/sticky_qrcode.png)
+
 ## 注意事项
 
 Sticky 组件实现依赖了 `position: sticky` 特性，该特性受父元素影响可能会失效。若遇到不生效的情况，请检查页面布局：

@@ -11,6 +11,10 @@
 <img src="../imgs/components/Toast5.PNG" alt="Toast 5" width="280" />
 <img src="../imgs/components/Toast6.PNG" alt="Toast 6" width="280" />
 
+## 扫码查看
+
+![扫码查看](../imgs/toast_qrcode.png)
+
 ## 基础用法
 页面 `.json` 文件 `usingComponents` 中引入组件
 ```json
