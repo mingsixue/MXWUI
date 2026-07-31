@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/component/index",
+    "pages/template/index/index",
+    "pages/icon/index",
+    "pages/template/form/one/index",
+    "pages/template/form/two/index",
+    "pages/template/form/three/index",
+    "pages/template/form/four/index",
+    "pages/template/form/five/index",
+    "pages/template/form/six/index"
+  ],
+  "requiredPrivateInfos": [],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "permission": {},
+  "usingComponents": {},
+  "lazyCodeLoading": "requiredComponents"
+}

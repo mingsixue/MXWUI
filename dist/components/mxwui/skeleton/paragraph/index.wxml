@@ -1,0 +1,1 @@
+<view wx:if="{{showSkeleton && rowList.length}}" class="{{rootClass}}" style="{{rootStyle}}" ><view wx:for="{{rowList}}" wx:key="index" class="mx-skeleton-paragraph-row {{item.last ? 'mx-skeleton-paragraph-row-last' : ''}} {{animateOn ? 'mx-skeleton-animate' : ''}}" ></view></view><slot wx:elif="{{!showSkeleton}}" /> 

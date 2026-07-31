@@ -1,0 +1,25 @@
+@import url('@common/common.less');
+
+.mx-skeleton {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 100%;
+
+    .mx-skeleton-avatar-wrapper {
+        flex-shrink: 0;
+        padding-right: 32rpx;
+    }
+
+    .mx-skeleton-content-wrapper {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+
+        &.mx-skeleton-content-with-avatar {
+            padding-top: 12rpx;
+        }
+    }
+}

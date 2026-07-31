@@ -1,0 +1,31 @@
+@import url('@common/common.less');
+
+.mx-skeleton-animate {
+    background: linear-gradient(
+        90deg,
+        @BORDER_COLOR 25%,
+        @GRAY_BG_COLOR 37%,
+        @BORDER_COLOR 63%
+    ) !important;
+    background-size: 400% 100% !important;
+    animation: mx-skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes mx-skeleton-loading {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.mx-skeleton-title {
+    box-sizing: border-box;
+    width: 45%;
+    height: 40rpx;
+    margin-bottom: 40rpx;
+    border-radius: 8rpx;
+    background-color: @BORDER_COLOR;
+}

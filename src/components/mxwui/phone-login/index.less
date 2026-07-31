@@ -1,0 +1,50 @@
+@import url('@common/common.less');
+
+.mx-phone-login {
+    width: 100%;
+    box-sizing: border-box;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 48rpx 48rpx 32rpx;
+    }
+
+    &__logo {
+        border-radius: 24rpx;
+        overflow: hidden;
+        background: @SOFT_BG_COLOR;
+        margin-bottom: 32rpx;
+    }
+
+    &__title {
+        color: @TEXT_COLOR;
+        font-size: 40rpx;
+        font-weight: bold;
+        line-height: 56rpx;
+        text-align: center;
+    }
+
+    &__desc {
+        margin-top: 12rpx;
+        color: @PLACEHOLDER_COLOR;
+        font-size: 26rpx;
+        line-height: 40rpx;
+        text-align: center;
+    }
+
+    &__slot {
+        width: 100%;
+    }
+
+    &__action {
+        display: flex;
+        justify-content: center;
+        padding: 16rpx 24rpx 0;
+    }
+
+    &__protocol {
+        padding: 32rpx 48rpx 16rpx;
+    }
+}

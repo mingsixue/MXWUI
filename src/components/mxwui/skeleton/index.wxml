@@ -1,0 +1,27 @@
+<view wx:if="{{showSkeleton}}" class="mx-skeleton" style="{{rootStyle}}">
+    <view wx:if="{{showAvatar}}" class="mx-skeleton-avatar-wrapper">
+        <mx-skeleton-avatar
+            loading="{{true}}"
+            animate="{{animate}}"
+            size="{{resolvedAvatarSize}}"
+            shape="{{resolvedAvatarShape}}"
+        />
+    </view>
+    <view
+        wx:if="{{showTitle || showParagraph}}"
+        class="mx-skeleton-content-wrapper {{showAvatar ? 'mx-skeleton-content-with-avatar' : ''}}"
+    >
+        <mx-skeleton-title
+            wx:if="{{showTitle}}"
+            loading="{{true}}"
+            animate="{{animate}}"
+        />
+        <mx-skeleton-paragraph
+            wx:if="{{showParagraph}}"
+            loading="{{true}}"
+            animate="{{animate}}"
+            rows="{{paragraphRows}}"
+        />
+    </view>
+</view>
+<slot wx:else />

@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "mx-btn": "../btn/index",
+        "mx-protocol": "../protocol/index"
+    }
+}

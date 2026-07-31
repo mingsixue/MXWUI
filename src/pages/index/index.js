@@ -1,0 +1,76 @@
+import XCX from '@utils/index';
+const app = getApp();
+
+Page({
+    data: {
+        navHeight: XCX.getNavHeight(),
+        entries: [
+            {
+                name: '图标',
+                desc: '查看所有图标',
+                icon: 'code',
+                url: '/pages/icon/index',
+                color: '#098562',
+                bg: 'rgba(9, 133, 98, 0.08)',
+            },
+            {
+                name: '示例',
+                desc: '组件使用示例',
+                icon: 'file',
+                url: '/pages/template/index/index',
+                color: '#C2996C',
+                bg: 'rgba(194, 153, 108, 0.12)',
+            },
+        ],
+        features: [
+            { title: '上手简单', desc: '原生语法，拷贝即用' },
+            { title: '按需引入', desc: '组件独立，体积可控' },
+            { title: '主题可配', desc: '统一色板，一处改色' },
+            { title: '高度定制', desc: '样式与行为可覆盖' },
+            { title: '文档齐全', desc: 'API 与示例对照' },
+            { title: '组合灵活', desc: '组件间搭配顺畅' },
+        ],
+    },
+
+    onLoad(e) {
+        console.log('=-= onLoad e', e);
+        console.log('=-= app', app);
+    },
+
+    onShareAppMessage() {
+        return {
+            title: 'MXWUI — 微信小程序原生 UI 组件库',
+            path: '/pages/index/index',
+            imageUrl: 'https://cdn.mingsixue.com/xcx/MXWUI/mxwui.png',
+        };
+    },
+
+    onShareTimeline() {
+        return {
+            title: 'MXWUI — 微信小程序原生 UI 组件库',
+            query: '',
+            imageUrl: 'https://cdn.mingsixue.com/xcx/MXWUI/mxwui.png',
+        };
+    },
+
+    handleGo(e) {
+        const { url } = e.currentTarget.dataset;
+        if (!url) return;
+        wx.redirectTo({ url });
+    },
+
+    handleCopyUrl() {
+        wx.setClipboardData({
+            data: 'https://github.com/mingsixue/mxwui',
+            success() {
+                wx.showToast({
+                    title: '复制成功',
+                });
+            },
+        });
+    },
+
+    handleLogoError(e) {
+        console.warn('logo load failed', e);
+    },
+});

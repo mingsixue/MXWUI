@@ -1,0 +1,1 @@
+<view wx:if="{{showSkeleton}}" class="{{rootClass}}" style="{{rootStyle}}" ></view><slot wx:else /> 

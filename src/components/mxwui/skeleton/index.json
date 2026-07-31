@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mx-skeleton-avatar": "./avatar/index",
+    "mx-skeleton-title": "./title/index",
+    "mx-skeleton-paragraph": "./paragraph/index"
+  }
+}

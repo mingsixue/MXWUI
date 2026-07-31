@@ -1,0 +1,195 @@
+@import url('@common/common.less');
+
+@key-height: 108rpx;
+@key-gap: 12rpx;
+@key-radius: 12rpx;
+
+.mx-number-keyboard {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    .mx-number-keyboard-mask {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background: transparent;
+    }
+
+    .mx-number-keyboard-panel {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        padding: 16rpx 16rpx 0;
+        box-sizing: border-box;
+        background: @SOFT_BG_COLOR;
+        animation: mx-number-keyboard-slide-up 0.2s linear;
+    }
+
+    .mx-number-keyboard-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 72rpx;
+        margin-bottom: 8rpx;
+        color: @MINOR_TEXT_COLOR;
+    }
+
+    .mx-number-keyboard-body {
+        display: flex;
+        width: 100%;
+
+        &.mx-number-keyboard-body-confirm {
+            .mx-number-keyboard-keys {
+                flex: 3;
+                margin-right: @key-gap;
+            }
+
+            .mx-number-keyboard-function {
+                flex: 1;
+            }
+        }
+    }
+
+    .mx-number-keyboard-keys {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mx-number-keyboard-row {
+        display: flex;
+        width: 100%;
+        margin-bottom: @key-gap;
+
+        .mx-number-keyboard-key {
+            margin-right: @key-gap;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .mx-number-keyboard-key {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: @key-height;
+        font-size: 48rpx;
+        font-family: PingFangSC-Medium, PingFang SC, sans-serif;
+        font-weight: 500;
+        color: @TEXT_COLOR;
+        background: @WHITE_COLOR;
+        border-radius: @key-radius;
+        box-shadow: 0 2rpx 0 rgba(0, 0, 0, 0.04);
+        user-select: none;
+
+        &.mx-number-keyboard-key-zero {
+            flex: 2.08;
+        }
+
+        &.mx-number-keyboard-key-empty {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        &.mx-number-keyboard-key-del {
+            font-size: 40rpx;
+        }
+    }
+
+    .mx-number-keyboard-key-active {
+        background: #E5E6EB !important;
+    }
+
+    .mx-number-keyboard-function {
+        display: flex;
+        flex-direction: column;
+
+        .mx-number-keyboard-key-del {
+            flex: none;
+            width: 100%;
+            margin-bottom: @key-gap;
+        }
+    }
+
+    .mx-number-keyboard-confirm {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(@key-height * 3 + @key-gap * 2);
+        padding: 24rpx 8rpx;
+        box-sizing: border-box;
+        background: @WHITE_COLOR;
+        border-radius: @key-radius;
+        box-shadow: 0 2rpx 0 rgba(0, 0, 0, 0.04);
+        user-select: none;
+
+        &.mx-number-keyboard-confirm-disabled {
+            background: @WHITE_COLOR;
+            opacity: 0.45;
+
+            .mx-number-keyboard-confirm-char {
+                color: @PLACEHOLDER_COLOR;
+            }
+        }
+    }
+
+    .mx-number-keyboard-confirm-active {
+        background: #E5E6EB !important;
+    }
+
+    .mx-number-keyboard-confirm-slot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .mx-number-keyboard-confirm-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mx-number-keyboard-confirm-char {
+        font-size: 36rpx;
+        font-family: PingFangSC-Medium, PingFang SC, sans-serif;
+        font-weight: 500;
+        line-height: 1.5;
+        color: @THEME_COLOR;
+    }
+
+    .mx-number-keyboard-safe {
+        width: 100%;
+        height: constant(safe-area-inset-bottom);
+        height: env(safe-area-inset-bottom);
+        background: @SOFT_BG_COLOR;
+    }
+}
+
+@keyframes mx-number-keyboard-slide-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}

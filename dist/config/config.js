@@ -1,0 +1,1 @@
+const CONFIG={ENV:"production",APPID:"",HOST:"",API_HOST:"",OSS_UPLOAD_HOST:"",OSS_HOST:"",HEADER:{"content-type":"application/json",Cookie:""},XCXV:20241010};export default CONFIG;

@@ -1,0 +1,61 @@
+@import url('@common/common.less');
+
+.mx-skeleton-animate {
+    background: linear-gradient(
+        90deg,
+        @BORDER_COLOR 25%,
+        @GRAY_BG_COLOR 37%,
+        @BORDER_COLOR 63%
+    ) !important;
+    background-size: 400% 100% !important;
+    animation: mx-skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes mx-skeleton-loading {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.mx-skeleton-avatar {
+    box-sizing: border-box;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 92rpx;
+    height: 92rpx;
+    border-radius: 8rpx;
+    background-color: @BORDER_COLOR;
+    vertical-align: top;
+
+    &.mx-skeleton-avatar-circle {
+        border-radius: 50%;
+    }
+
+    &.mx-skeleton-avatar-square {
+        border-radius: 8rpx;
+    }
+
+    &.mx-skeleton-avatar-x-small {
+        width: 36rpx;
+        height: 36rpx;
+    }
+
+    &.mx-skeleton-avatar-small {
+        width: 60rpx;
+        height: 60rpx;
+    }
+
+    &.mx-skeleton-avatar-medium {
+        width: 92rpx;
+        height: 92rpx;
+    }
+
+    &.mx-skeleton-avatar-large {
+        width: 140rpx;
+        height: 140rpx;
+    }
+}

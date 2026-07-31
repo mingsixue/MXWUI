@@ -1,0 +1,106 @@
+@import url('@common/common.less');
+.mx-upload{
+    &.mx-upload-disabled{
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    .upload-wrap{
+        position: relative;
+        border-radius: 4rpx;
+        overflow: hidden;
+        background: @BG_COLOR;
+        .results{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+        }
+        .txt{
+            display: block;
+            margin-top: 8rpx;
+            color: @PLACEHOLDER_COLOR;
+            font-size: 24rpx;
+        }
+        .results-small{
+            .txt{
+                margin-top: 4rpx;
+                font-size: 20rpx;
+            }
+        }
+    }
+    .result-wrap{
+        position: relative;
+        border-radius: 4rpx;
+        .cover{
+            width: 100%;
+            height: 100%;
+            border-radius: 4rpx;
+            overflow: hidden;
+        }
+        .del{
+            position: absolute;
+            top: 6rpx;
+            right: 6rpx;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        .file-placeholder{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4rpx;
+            background: @BG_COLOR;
+            box-sizing: border-box;
+        }
+        .play{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 3;
+            transform: translate(-50%, -50%);
+            width: 72rpx;
+            height: 72rpx;
+            background: url(https://cdn.mingsixue.com/xcx/MXWUI/play.png) no-repeat;
+            background-size: cover;
+            pointer-events: none;
+        }
+        .results{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            border-radius: 4rpx;
+            background: rgba(0,0,0,.5);
+            text-align: center;
+            .result{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 2;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                text-align: center;
+            }
+            .txt{
+                display: block;
+                margin-top: 16rpx;
+                font-size: 24rpx;
+                color: @WHITE_COLOR;
+            }
+            .retry{
+                display: block;
+                margin-top: 8rpx;
+                font-size: 22rpx;
+                color: rgba(255,255,255,0.85);
+            }
+        }
+    }
+}
