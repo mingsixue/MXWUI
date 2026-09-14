@@ -1,1 +1,1 @@
-import request from"./request";import config from"../config/config";const getOssToken=async e=>{},upload=(e="img",o)=>{wx.chooseMedia({count:1,mediaType:["image"],sourceType:["album"],success(e){e.tempFiles[0].tempFilePath;getOssToken()}})};export default upload;
+import config from"../config/config";const getOssToken=async e=>{},upload=(e="img",o)=>{wx.chooseMedia({count:1,mediaType:["image"],sourceType:["album"],success(e){e.tempFiles[0].tempFilePath;getOssToken()}})};export default upload;

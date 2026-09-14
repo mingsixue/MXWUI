@@ -1,5 +1,5 @@
 <view class="mx-empty" style="{{top ? 'padding-top:'+top+'rpx;' : '' }}">
-    <view class="icons" style="width:{{iconSize+100}}rpx;height:{{iconSize+100}}rpx;">
+    <view class="icons" style="width:{{iconSize+60}}rpx;height:{{iconSize+60}}rpx;">
         <image wx:if="{{iconUrl}}" class="icon" mode="widthFix" src="{{iconUrl}}" style="width:{{iconSize}}rpx;height:{{iconSize}}rpx;" />
         <mx-icon wx:else name="{{iconName}}" size="{{iconSize}}" color="{{iconColor}}" />
     </view>

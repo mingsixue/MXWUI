@@ -35,7 +35,7 @@ Component({
         // 图标/图片大小
         iconSize: {
             type: Number,
-            value: 200,
+            value: 120,
         },
         // 图标自定义图片
         iconUrl: {

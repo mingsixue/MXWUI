@@ -1,1 +1,1 @@
-import XCX from"../../../../utils/index";Page({data:{propDocs:[{prop:"propName",values:"可选值示例",required:"选填",type:"String"}],navHeight:XCX.getNavHeight()},handleTap(){console.log("🔥🔥🔥 接收到了点击事件")}});
+import XCX from"../../../../utils/index";Page({data:{propDocs:[{prop:"propName",desc:"属性名示例",values:"可选值示例",required:"选填",type:"String"}],navHeight:XCX.getNavHeight()},handleTap(){console.log("🔥🔥🔥 接收到了点击事件")}});

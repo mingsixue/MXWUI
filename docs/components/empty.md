@@ -62,11 +62,11 @@
 
 属性：`iconUrl`，自定义图片地址，传入则 `iconName` 和 `iconColor` 无效。
 
-属性：`iconSize`，默认 `200`，不带单位，使用rpx。
+属性：`iconSize`，默认 `120`，不带单位，使用rpx。
 
 - 自定义图标
 ```html
-<mx-empty iconName="order" iconColor="#1677FF" iconSize="160" />
+<mx-empty iconName="order" iconColor="#1677FF" iconSize="120" />
 ```
 
 - 自定义图片
@@ -150,7 +150,7 @@
 |descColor|String||颜色值|`#9AA0B1`|描述文案文本色，支持任何合法的颜色值|
 |iconName|String|是||`empty`|图标名称，只支持图标库中图标|
 |iconColor|String||颜色值|`#9AA0B1`|图标颜色，支持任何合法的颜色值|
-|iconSize|Number|||`200`|图标大小，不带单位，默认使用rpx|
+|iconSize|Number|||`120`|图标大小，不带单位，默认使用rpx|
 |iconUrl|String|是|||图标自定义图片，传了则`iconName`、`iconColor`、`iconSize` 无效|
 |top|Number||`0`|距离顶部距离，单位rpx|
 |mainBtnText|String||||主按钮文案|

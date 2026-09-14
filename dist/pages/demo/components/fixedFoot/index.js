@@ -1,1 +1,1 @@
-import XCX from"../../../../utils/index";Page({data:{propDocs:[{prop:"bgColor",values:"默认 COLOR.WHITE_COLOR",required:"选填",type:"String"},{prop:"zIndex",values:"默认 1",required:"选填",type:"Number"}],navHeight:XCX.getNavHeight()},handleTap(){console.log("🔥🔥🔥 接收到了点击事件")}});
+import XCX from"../../../../utils/index";Page({data:{propDocs:[{prop:"bgColor",desc:"背景色，支持任何合法的颜色值",values:"默认 COLOR.WHITE_COLOR",required:"选填",type:"String"},{prop:"zIndex",desc:"层级",values:"默认 1",required:"选填",type:"Number"}],navHeight:XCX.getNavHeight()},handleTap(){console.log("🔥🔥🔥 接收到了点击事件")}});

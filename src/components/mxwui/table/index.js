@@ -160,6 +160,26 @@ Component({
             type: String,
             value: '',
         },
+        // 是否开启斑马纹
+        stripe: {
+            type: Boolean,
+            value: false,
+        },
+        // 斑马纹显示方式：ROW 隔行 / COLUMN 隔列
+        stripeType: {
+            type: String,
+            value: 'ROW',
+        },
+        // 斑马纹颜色
+        stripeColor: {
+            type: String,
+            value: COLOR.BG_COLOR,
+        },
+        // 表头背景色
+        headerBgColor: {
+            type: String,
+            value: COLOR.WHITE_COLOR,
+        },
     },
     data: {
         widthPx: 0,
@@ -174,7 +194,7 @@ Component({
         emptyInnerStyle: '',
     },
     observers: {
-        'dataSource, columns, displayType, scrollHeight': function () {
+        'dataSource, columns, displayType, scrollHeight, stripe, stripeType, stripeColor, headerBgColor': function () {
             this._init();
         },
     },
@@ -244,6 +264,8 @@ Component({
         },
 
         _buildHeader(columns, windowWidth, isFull) {
+            const headerBgColor = this.data.headerBgColor || COLOR.WHITE_COLOR;
+            const headerBgStyle = `background:${headerBgColor};`;
             return {
                 type: 'columns',
                 cells: columns.map((col) => {
@@ -255,6 +277,7 @@ Component({
                         key,
                         widthPx: resolved.widthPx,
                         widthStyle: isFull ? '' : resolved.widthStyle,
+                        headerBgStyle,
                         align,
                         alignClass: align === 'left' ? '' : `mx-table-cell-${align}`,
                         sorterStatus: key === this._sorterKey ? this._sorterStatus : 'normal',
@@ -266,6 +289,11 @@ Component({
         },
 
         _buildRows(dataSource, columns, windowWidth, isFull) {
+            const stripe = !!this.data.stripe;
+            const stripeType = String(this.data.stripeType || 'ROW').toUpperCase();
+            const stripeColor = this.data.stripeColor || COLOR.BG_COLOR;
+            const isColumnStripe = stripeType === 'COLUMN';
+
             return dataSource.map((row, rowIndex) => ({
                 type: 'rows',
                 key: row && (row.key !== undefined ? row.key : rowIndex),
@@ -276,6 +304,11 @@ Component({
                     const resolved = resolveColumnWidth(col.width, windowWidth);
                     const value = getCellValue(row, col.dataIndex);
                     const align = resolveAlign(col, row);
+                    const isStripeCell = stripe && (
+                        isColumnStripe
+                            ? colIndex % 2 === 1
+                            : rowIndex % 2 === 1
+                    );
                     return {
                         key,
                         index: colIndex,
@@ -283,6 +316,7 @@ Component({
                         value,
                         widthPx: resolved.widthPx,
                         widthStyle: isFull ? '' : resolved.widthStyle,
+                        stripeStyle: isStripeCell ? `background:${stripeColor};` : '',
                         align,
                         alignClass: align === 'left' ? '' : `mx-table-cell-${align}`,
                         fixed: !!col.fixed,

@@ -20,7 +20,7 @@
                     wx:for-index="colIndex"
                     wx:key="key"
                     class="mx-table-cell mx-table-th {{cell.alignClass}} {{cell.fixed ? 'mx-table-cell-fixed' : ''}} {{cell.fixed && showFixedShadow ? 'mx-table-cell-shadow' : ''}}"
-                    style="{{cell.widthStyle}}"
+                    style="{{cell.widthStyle}}{{cell.headerBgStyle}}"
                     data-index="{{colIndex}}"
                     catchtap="handleSort"
                 >
@@ -47,7 +47,7 @@
                         wx:for-item="cell"
                         wx:key="key"
                         class="mx-table-cell mx-table-td {{cell.alignClass}} {{cell.fixed ? 'mx-table-cell-fixed' : ''}} {{cell.fixed && showFixedShadow ? 'mx-table-cell-shadow' : ''}}"
-                        style="{{cell.widthStyle}}"
+                        style="{{cell.widthStyle}}{{cell.stripeStyle}}"
                         data-row-index="{{row.index}}"
                         data-col-index="{{cell.index}}"
                         bindtap="handleCellTap"

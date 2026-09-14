@@ -1,10 +1,12 @@
 @import url('@common/common.less');
 .mx-input{
-    width: 750rpx;
+    width: 100%;
+    box-sizing: border-box;
     min-height: 92rpx;
     .inputs-wrap{
         position: relative;
-        width: 750rpx;
+        width: 100%;
+        box-sizing: border-box;
         min-height: 92rpx;
         background: @WHITE_COLOR;
         &.inputs-wrap-nobg{
@@ -16,7 +18,8 @@
                 position: absolute;
                 bottom: 0;
                 left: 24rpx;
-                width: 702rpx;
+                right: 0;
+                width: auto;
                 height: 2rpx;
                 background: @BORDER_COLOR;
             }
@@ -45,11 +48,11 @@
         position: relative;
         display: flex;
         align-items: center;
-        width: 702rpx;
+        width: auto;
         height: 92rpx;
-        margin: 0 auto;
+        margin: 0 24rpx;
         .input{
-            width: 702rpx;
+            width: 100%;
             height: 92rpx;
             background: @WHITE_COLOR;
             font-size: 32rpx;
@@ -87,7 +90,7 @@
             height: 92rpx;
             display: flex;
             align-items: center;
-            padding: 0 24rpx;
+            padding: 0 0 0 16rpx;
             background: transparent;
         }
     }

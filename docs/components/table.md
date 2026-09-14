@@ -1,6 +1,6 @@
 # Table 表格组件
 
-展示行列数据。支持固定列、列排序、局部滚动、铺满布局与空状态插槽。
+展示行列数据。支持固定列、列排序、局部滚动、铺满布局、斑马纹与空状态插槽。
 
 ## 示例图
 
@@ -182,6 +182,64 @@ columns: [
 />
 ```
 
+### # 斑马纹 stripe
+属性：`stripe`，开启斑马纹，默认 `false`。开启后默认隔行显示。
+```html
+<mx-table
+    dataSource="{{dataSource}}"
+    columns="{{columns}}"
+    stripe="{{true}}"
+/>
+```
+
+### # 斑马纹显示方式 stripeType
+属性：`stripeType`，可选 `ROW`、`COLUMN`，默认 `ROW`。
+
+- `ROW`：隔行显示
+- `COLUMN`：隔列显示
+```html
+<!-- 隔行 -->
+<mx-table
+    dataSource="{{dataSource}}"
+    columns="{{columns}}"
+    stripe="{{true}}"
+    stripeType="ROW"
+/>
+
+<!-- 隔列 -->
+<mx-table
+    dataSource="{{dataSource}}"
+    columns="{{columns}}"
+    displayType="FULL"
+    stripe="{{true}}"
+    stripeType="COLUMN"
+/>
+```
+
+### # 斑马纹颜色 stripeColor
+属性：`stripeColor`，斑马纹颜色，默认背景色 `#F8F9FA`，支持任何合法颜色值。
+```html
+<mx-table
+    dataSource="{{dataSource}}"
+    columns="{{columns}}"
+    displayType="FULL"
+    stripe="{{true}}"
+    stripeType="ROW"
+    stripeColor="#EFF0F5"
+/>
+```
+
+### # 表头背景色 headerBgColor
+属性：`headerBgColor`，表头背景色，默认 `#FFFFFF`，支持任何合法颜色值。
+```html
+<mx-table
+    dataSource="{{dataSource}}"
+    columns="{{columns}}"
+    displayType="FULL"
+    headerBgColor="#F8F9FA"
+/>
+```
+
 ## 自定义事件
 ```html
 <mx-table
@@ -218,6 +276,10 @@ handleSort(e) {
 |emptyIconSize|Number||数字|`120`|空状态图标尺寸，单位 rpx|
 |emptyIconColor|String||颜色值|占位色|空状态图标颜色|
 |customStyle|String||||根节点自定义样式|
+|stripe|Boolean||`true`、`false`|`false`|是否开启斑马纹|
+|stripeType|String||`ROW`、`COLUMN`|`ROW`|斑马纹显示方式：隔行 / 隔列|
+|stripeColor|String||颜色值|`#F8F9FA`|斑马纹颜色|
+|headerBgColor|String||颜色值|`#FFFFFF`|表头背景色|
 
 ### Column
 |参数|类型|必填|可选值|默认值|参数描述|
