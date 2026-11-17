@@ -16,6 +16,9 @@ MXWUI是一套基于微信小程序原生语法开发的UI组件库，涵盖日�
 ### 扫码体验
 ![扫码查看](./docs/imgs/mxwui_qrcode.png)
 
+### 查看官网教程
+https://www.mingsixue.com/mxwui
+
 ### 使用教程
 直接将 `dist/components/mxwui` 目录下的文件拷到你自己的项目中，放入你自己项目的 `components` 公共组件目录里面。
 
