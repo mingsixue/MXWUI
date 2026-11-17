@@ -1,0 +1,60 @@
+@import url('@common/common.less');
+
+.mx-water-mark {
+    box-sizing: border-box;
+
+    &.mx-water-mark-local {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &.mx-water-mark-full {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .mx-water-mark-content {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .mx-water-mark-layer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background-repeat: repeat;
+        background-position: left top;
+        z-index: 9;
+    }
+
+    &.mx-water-mark-full .mx-water-mark-layer {
+        position: fixed;
+    }
+
+    // iOS 真机对完全移出视口 / opacity:0 的 canvas 导出常为空白；
+    // 用 transform 移出可视区，比 left:-9999px 更稳，且避免顶角残影
+    .mx-water-mark-canvas {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -9999;
+        pointer-events: none;
+        opacity: 0.01;
+        transform: translate(-100%, -100%);
+    }
+}

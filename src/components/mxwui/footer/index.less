@@ -1,0 +1,106 @@
+@import url('@common/common.less');
+
+.mx-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16rpx 32rpx 32rpx;
+
+    .mx-footer-hover {
+        opacity: 0.4;
+    }
+
+    .mx-footer-label {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .mx-footer-label-plain {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20rpx 0;
+    }
+
+    .mx-footer-label-text {
+        font-size: 28rpx;
+        line-height: 40rpx;
+        color: @PLACEHOLDER_COLOR;
+    }
+
+    .mx-footer-label-slot {
+        width: 100%;
+    }
+
+    .mx-footer-links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 8rpx 0;
+    }
+
+    .mx-footer-links-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &.disabled {
+            .mx-footer-links-text {
+                color: @PLACEHOLDER_COLOR;
+            }
+        }
+    }
+
+    .mx-footer-links-text {
+        font-size: 26rpx;
+        line-height: 37rpx;
+        color: #1677ff;
+    }
+
+    .mx-footer-content {
+        margin: 8rpx 0;
+        font-size: 26rpx;
+        line-height: 37rpx;
+        color: @PLACEHOLDER_COLOR;
+        text-align: center;
+    }
+
+    .mx-footer-content-slot {
+        width: 100%;
+    }
+
+    .mx-footer-chips {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 12rpx 0;
+    }
+
+    .mx-footer-chips-item {
+        box-sizing: border-box;
+        height: 49rpx;
+        margin-left: 24rpx;
+        padding: 8rpx 24rpx;
+        border-radius: 25rpx;
+        font-size: 24rpx;
+        line-height: 33rpx;
+        color: #1677ff;
+        background: @SOFT_BG_COLOR;
+
+        &.first {
+            margin-left: 0;
+        }
+
+        &.disabled {
+            color: @PLACEHOLDER_COLOR;
+            background: @GRAY_BG_COLOR;
+        }
+    }
+}

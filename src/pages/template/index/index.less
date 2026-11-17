@@ -1,0 +1,244 @@
+@import '../../../common/colors.less';
+
+.pageTemplate {
+    min-height: 100vh;
+    padding-bottom: 110rpx;
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 110rpx);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 110rpx);
+    background: @BG_COLOR;
+    box-sizing: border-box;
+}
+
+.intro {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 8rpx;
+}
+
+.introBg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse 80% 90% at 100% 0%, rgba(9, 133, 98, 0.1) 0%, transparent 55%),
+        linear-gradient(180deg, #FFFFFF 0%, @BG_COLOR 100%);
+}
+
+.introInner {
+    position: relative;
+    z-index: 1;
+    padding: 36rpx 40rpx 28rpx;
+}
+
+.introTitle {
+    font-size: 40rpx;
+    font-weight: 700;
+    color: @TEXT_COLOR;
+    letter-spacing: 1rpx;
+    line-height: 1.3;
+}
+
+.introDesc {
+    margin-top: 12rpx;
+    font-size: 24rpx;
+    line-height: 1.5;
+    color: @MINOR_TEXT_COLOR;
+}
+
+.tabsSticky {
+    position: sticky;
+    z-index: 20;
+    background: @BG_COLOR;
+}
+
+.tabs {
+    width: 100%;
+    padding: 8rpx 0 24rpx;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.tabsInner {
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    padding: 0 32rpx;
+    box-sizing: border-box;
+}
+
+.tab {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 64rpx;
+    padding: 0 28rpx;
+    margin-right: 16rpx;
+    background: @WHITE_COLOR;
+    border: 1rpx solid @BORDER_COLOR;
+    border-radius: 32rpx;
+    font-size: 26rpx;
+    color: @MINOR_TEXT_COLOR;
+    box-sizing: border-box;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &:active {
+        opacity: 0.85;
+    }
+}
+
+.tabActive {
+    background: @THEME_COLOR;
+    border-color: @THEME_COLOR;
+    color: @WHITE_COLOR;
+    font-weight: 500;
+
+    .tabCount {
+        background: rgba(255, 255, 255, 0.22);
+        color: @WHITE_COLOR;
+    }
+}
+
+.tabCount {
+    margin-left: 10rpx;
+    padding: 0 12rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    font-size: 20rpx;
+    background: @SOFT_BG_COLOR;
+    border-radius: 16rpx;
+    color: @PLACEHOLDER_COLOR;
+}
+
+.section {
+    margin: 0 32rpx 32rpx;
+}
+
+.sectionHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+    padding: 0 4rpx;
+}
+
+.sectionTitleWrap {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    flex: 1;
+}
+
+.sectionIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 16rpx;
+}
+
+.sectionMeta {
+    margin-left: 16rpx;
+    min-width: 0;
+}
+
+.sectionTitle {
+    font-size: 30rpx;
+    font-weight: 700;
+    color: @TEXT_COLOR;
+    line-height: 1.3;
+}
+
+.sectionDesc {
+    margin-top: 4rpx;
+    font-size: 22rpx;
+    color: @PLACEHOLDER_COLOR;
+    line-height: 1.4;
+}
+
+.sectionCount {
+    flex-shrink: 0;
+    margin-left: 16rpx;
+    font-size: 24rpx;
+    color: @PLACEHOLDER_COLOR;
+}
+
+.list {
+    background: @WHITE_COLOR;
+    border: 1rpx solid @BORDER_COLOR;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 28rpx;
+    border-bottom: 1rpx solid @BORDER_COLOR;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:active {
+        background: @GRAY_BG_COLOR;
+    }
+}
+
+.itemIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 16rpx;
+}
+
+.itemBody {
+    flex: 1;
+    margin: 0 20rpx;
+    min-width: 0;
+}
+
+.itemTop {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.itemLabel {
+    font-size: 28rpx;
+    font-weight: 500;
+    color: @TEXT_COLOR;
+    line-height: 1.3;
+}
+
+.itemTag {
+    flex-shrink: 0;
+    margin-left: 12rpx;
+    padding: 0 12rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    font-size: 20rpx;
+    color: @MINOR_TEXT_COLOR;
+    background: @SOFT_BG_COLOR;
+    border-radius: 8rpx;
+}
+
+.itemDesc {
+    margin-top: 8rpx;
+    font-size: 22rpx;
+    line-height: 1.4;
+    color: @PLACEHOLDER_COLOR;
+}
+
+.safeBottom {
+    height: 24rpx;
+}

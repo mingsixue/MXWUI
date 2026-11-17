@@ -1,0 +1,100 @@
+@import url('@common/common.less');
+.mx-verification-code{
+    .dialog-cons{
+        margin-bottom: 48rpx;
+        .infos{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40rpx;
+            .left{
+                .txt{
+                    font-size: 28rpx;
+                    color: @PLACEHOLDER_COLOR;
+                }
+                .phone{
+                    margin-top: 4rpx;
+                    font-size: 32rpx;
+                    font-weight: bold;
+                    color: @TEXT_COLOR;
+                }
+            }
+        }
+        .codes{
+            position: relative;
+            padding: 0 40rpx;
+            &.codes-digit4{
+                padding: 0 100rpx;
+            }
+            .codes-inner{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .captcha-cell{
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 104rpx;
+                height: 104rpx;
+                border-radius: 4rpx;
+                background: @GRAY_BG_COLOR;
+                border: 2rpx solid @GRAY_BG_COLOR;
+                color: @TEXT_COLOR;
+                font-size: 56rpx;
+                font-weight: bold;
+                margin-right: 26rpx;
+                box-sizing: content-box;
+                &:last-child{
+                    margin-right: 0;
+                }
+                .captcha-digit{
+                    line-height: 1;
+                }
+                .captcha-caret{
+                    width: 4rpx;
+                    height: 48rpx;
+                    border-radius: 2rpx;
+                    animation: captchaCaretBlink 1s steps(1) infinite;
+                }
+            }
+            /* 移出可视区：真机原生 input 光标常无视 opacity/caret-color，避免漏出红色光标 */
+            .captcha-hidden-input{
+                position: absolute;
+                left: -9999px;
+                top: 0;
+                width: 40px;
+                height: 40px;
+                opacity: 0;
+                z-index: 1;
+                color: transparent;
+                caret-color: transparent;
+                pointer-events: none;
+            }
+        }
+    }
+    .form-input{
+        flex-grow: 1;
+        height: 92rpx;
+        font-size: 32rpx;
+        color: @TEXT_COLOR;
+    }
+    .desc{
+        padding: 12rpx 24rpx 24rpx;
+        font-size: 24rpx;
+        line-height: 40rpx;
+        color: @MINOR_TEXT_COLOR;
+    }
+}
+
+@keyframes captchaCaretBlink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    50.01%,
+    100% {
+        opacity: 0;
+    }
+}

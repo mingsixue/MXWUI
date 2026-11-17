@@ -1,0 +1,64 @@
+@import url('@common/common.less');
+
+.mx-badge {
+    position: relative;
+    display: inline-block;
+
+    .mx-badge-body {
+        display: block;
+    }
+
+    .mx-badge-content {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        word-break: keep-all;
+        white-space: nowrap;
+        top: 0;
+        left: 100%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+
+    .mx-badge-content-not-dot {
+        min-width: 32rpx;
+        height: 32rpx;
+        padding: 0 10rpx;
+        border-radius: 32rpx;
+        background-color: @THEME_COLOR;
+        color: @WHITE_COLOR;
+        font-size: 20rpx;
+        line-height: 1;
+    }
+
+    .mx-badge-content-stroke {
+        border: 2rpx solid @WHITE_COLOR;
+    }
+
+    .mx-badge-content-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mx-badge-dot {
+        width: 16rpx;
+        height: 16rpx;
+        border-radius: 50%;
+        background-color: @THEME_COLOR;
+    }
+
+    .mx-badge-dot-stroke {
+        border: 2rpx solid @WHITE_COLOR;
+        box-sizing: border-box;
+    }
+
+    .mx-badge-number,
+    .mx-badge-text,
+    .mx-badge-bubble {
+        color: @WHITE_COLOR;
+    }
+}

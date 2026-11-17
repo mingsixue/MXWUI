@@ -1,0 +1,1 @@
+const getNavHeight=()=>{const{statusBarHeight:t}=wx.getSystemInfoSync();return t+44},XCX={getNavHeight:getNavHeight};export default XCX;

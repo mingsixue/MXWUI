@@ -1,0 +1,56 @@
+<view
+    class="mx-result"
+    style="{{top ? 'padding-top:' + top + 'rpx;' : ''}}{{customStyle}}"
+>
+    <view class="mx-result-main">
+        <!-- 图标 / 图片区：有内置展示时优先，否则走 image 插槽 -->
+        <view
+            wx:if="{{showMedia}}"
+            class="mx-result-image"
+            style="width:{{iconSize}}rpx;height:{{iconSize}}rpx;"
+        >
+            <mx-icon
+                wx:if="{{displayIcon}}"
+                name="{{displayIcon}}"
+                size="{{iconSize}}"
+                color="{{displayIconColor}}"
+            />
+            <image
+                wx:elif="{{image}}"
+                class="mx-result-image-img"
+                src="{{image}}"
+                mode="aspectFit"
+                style="width:{{iconSize}}rpx;height:{{iconSize}}rpx;"
+            />
+        </view>
+        <slot wx:else name="image"></slot>
+
+        <!-- 主文案 -->
+        <view wx:if="{{title}}" class="mx-result-title" style="color:{{titleColor}};">{{title}}</view>
+        <slot wx:else name="title"></slot>
+
+        <!-- 副文案 -->
+        <view wx:if="{{message}}" class="mx-result-message" style="color:{{messageColor}};">{{message}}</view>
+        <slot wx:else name="message"></slot>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view
+        wx:if="{{buttons.length}}"
+        class="mx-result-buttons {{buttons.length === 1 ? 'center' : ''}}"
+    >
+        <mx-btn
+            wx:for="{{buttons}}"
+            wx:key="index"
+            type="{{item.type || (index === buttons.length - 1 ? 'primary' : 'default')}}"
+            width="{{buttons.length === 1 ? '352rpx' : '260rpx'}}"
+            themeColor="{{item.color || ''}}"
+            data-item="{{item}}"
+            data-index="{{index}}"
+            bind:tap="handleBtnTap"
+        >{{item.text}}</mx-btn>
+    </view>
+
+    <!-- 额外内容插槽 -->
+    <slot name="extra"></slot>
+</view>

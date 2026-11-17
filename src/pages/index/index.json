@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "mx-nav": "/components/mxwui/nav/index",
+        "mx-icon": "/components/mxwui/icon/index",
+        "menus": "/components/menus/index"
+    },
+    "enableShareAppMessage": true,
+    "enableShareTimeline": true
+}

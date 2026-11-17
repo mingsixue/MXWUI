@@ -1,0 +1,42 @@
+<view
+    class="mx-loading mx-loading-{{resolvedType}} {{sizeClass}}"
+    style="{{rootStyle}}"
+>
+    <!-- spin：圆环 -->
+    <view
+        wx:if="{{resolvedType === 'spin'}}"
+        class="mx-loading-spin-icon"
+        style="{{spinIconStyle}}"
+    ></view>
+
+    <!-- dot：点状圆环 -->
+    <block wx:elif="{{resolvedType === 'dot'}}">
+        <view
+            wx:for="{{dotItems}}"
+            wx:key="index"
+            class="mx-loading-dot-spoke"
+            style="{{item.spokeStyle}}"
+        >
+            <view class="mx-loading-dot-item" style="{{item.itemStyle}}"></view>
+        </view>
+    </block>
+
+    <!-- petal：矩形段圆环 -->
+    <block wx:elif="{{resolvedType === 'petal'}}">
+        <view
+            wx:for="{{petalItems}}"
+            wx:key="index"
+            class="mx-loading-petal-spoke"
+            style="{{item.spokeStyle}}"
+        >
+            <view class="mx-loading-petal-item" style="{{item.itemStyle}}"></view>
+        </view>
+    </block>
+
+    <!-- mini：三点跳动 -->
+    <block wx:else>
+        <view class="mx-loading-mini-item mx-loading-mini-item-1" style="{{miniItemStyle}}"></view>
+        <view class="mx-loading-mini-item mx-loading-mini-item-2" style="{{miniItemStyle}}"></view>
+        <view class="mx-loading-mini-item mx-loading-mini-item-3" style="{{miniItemStyle}}"></view>
+    </block>
+</view>

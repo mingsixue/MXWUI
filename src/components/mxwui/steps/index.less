@@ -1,0 +1,196 @@
+@import url('@common/common.less');
+
+.mx-steps {
+    display: flex;
+    box-sizing: border-box;
+
+    &-horizontal {
+        flex-direction: row;
+        width: 100%;
+        padding: 16rpx 0;
+        box-sizing: border-box;
+    }
+
+    &-vertical {
+        flex-direction: column;
+        padding: 8rpx 0;
+        box-sizing: border-box;
+    }
+
+    &-item {
+        position: relative;
+        box-sizing: border-box;
+
+        &.is-clickable {
+            cursor: pointer;
+        }
+
+        &-horizontal {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 0;
+        }
+
+        &-vertical {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+
+            &.is-last {
+                .mx-steps-content-vertical {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &-indicator {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-shrink: 0;
+
+        &-horizontal {
+            width: 100%;
+            height: 48rpx;
+            margin-bottom: 16rpx;
+            align-items: center;
+        }
+
+        &-vertical {
+            width: 48rpx;
+            margin-right: 20rpx;
+            align-self: stretch;
+        }
+    }
+
+    &-icon {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48rpx;
+        height: 48rpx;
+        border-radius: 50%;
+        border: 2rpx solid transparent;
+        box-sizing: border-box;
+        background: @WHITE_COLOR;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        &-wait {
+            background: @WHITE_COLOR;
+        }
+
+        &-img {
+            width: 32rpx;
+            height: 32rpx;
+        }
+    }
+
+    &-num {
+        font-size: 24rpx;
+        line-height: 1;
+        font-weight: 500;
+    }
+
+    &-line {
+        position: absolute;
+        z-index: 1;
+        box-sizing: border-box;
+        pointer-events: none;
+
+        // 横向：从当前圆点右侧接到下一圆点左侧
+        &-horizontal {
+            top: 50%;
+            left: 50%;
+            right: -50%;
+            height: 2rpx;
+            margin-left: 28rpx;
+            margin-right: 28rpx;
+            transform: translateY(-50%);
+        }
+
+        // 纵向：从当前圆点底部接到下一圆点顶部（随 content 间距撑满）
+        &-vertical {
+            top: 48rpx;
+            bottom: 0;
+            left: 50%;
+            width: 2rpx;
+            margin-top: 8rpx;
+            transform: translateX(-50%);
+        }
+    }
+
+    &-content {
+        box-sizing: border-box;
+        min-width: 0;
+
+        &-horizontal {
+            width: 100%;
+            padding: 0 12rpx;
+            text-align: center;
+        }
+
+        &-vertical {
+            flex: 1;
+            padding-top: 4rpx;
+            padding-bottom: 40rpx;
+        }
+    }
+
+    &-title {
+        font-size: 28rpx;
+        line-height: 1.4;
+        font-weight: 500;
+        word-break: break-all;
+    }
+
+    &-desc {
+        margin-top: 6rpx;
+        font-size: 24rpx;
+        line-height: 1.4;
+        word-break: break-all;
+    }
+
+    &-item-horizontal &-title,
+    &-item-horizontal &-desc {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    // 小圆点样式
+    &-type-dot {
+        .mx-steps-indicator-horizontal {
+            height: 16rpx;
+        }
+
+        .mx-steps-indicator-vertical {
+            width: 16rpx;
+        }
+
+        .mx-steps-icon-dot {
+            width: 16rpx;
+            height: 16rpx;
+            border-width: 0;
+            overflow: visible;
+        }
+
+        .mx-steps-line-horizontal {
+            margin-left: 12rpx;
+            margin-right: 12rpx;
+        }
+
+        .mx-steps-line-vertical {
+            top: 16rpx;
+            margin-top: 8rpx;
+        }
+    }
+}

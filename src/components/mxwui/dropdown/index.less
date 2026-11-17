@@ -1,0 +1,130 @@
+@import url('@common/common.less');
+
+.mx-dropdown {
+    position: relative;
+    display: inline-block;
+
+    &.mx-dropdown-with-mask {
+        z-index: 999;
+    }
+
+    .mx-dropdown-children {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+    }
+
+    .mx-dropdown-mask {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background: transparent;
+    }
+
+    .mx-dropdown-menu {
+        position: absolute;
+        z-index: 3;
+        box-sizing: border-box;
+        min-width: 200rpx;
+        max-width: calc(100vw - 48rpx);
+    }
+
+    .mx-dropdown-inner {
+        position: relative;
+        background: @WHITE_COLOR;
+        border-radius: 16rpx;
+        overflow: hidden;
+        box-shadow: 0 8rpx 28rpx rgba(4, 10, 35, 0.16);
+        padding: 8rpx 0;
+        box-sizing: border-box;
+        animation: mx-dropdown-in 0.2s ease;
+    }
+
+    .mx-dropdown-item {
+        display: flex;
+        align-items: center;
+        min-height: 80rpx;
+        padding: 0 32rpx;
+        box-sizing: border-box;
+
+        &:active:not(.mx-dropdown-item-disabled) {
+            background: @SOFT_BG_COLOR;
+        }
+
+        &-disabled {
+            opacity: 0.5;
+        }
+
+        &-divided {
+            margin-top: 8rpx;
+            padding-top: 8rpx;
+            border-top: 1rpx solid @BORDER_COLOR;
+        }
+
+        &-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16rpx;
+            flex-shrink: 0;
+        }
+
+        &-img {
+            width: 36rpx;
+            height: 36rpx;
+            display: block;
+        }
+
+        &-text {
+            flex: 1;
+            font-size: 28rpx;
+            line-height: 40rpx;
+            color: @TEXT_COLOR;
+            word-break: break-all;
+        }
+    }
+
+    &-bottom {
+        transform: translate(-50%, 0);
+        transform-origin: center top;
+    }
+
+    &-bottom-left {
+        transform: translate(0, 0);
+        transform-origin: left top;
+    }
+
+    &-bottom-right {
+        transform: translate(0, 0);
+        transform-origin: right top;
+    }
+
+    &-top {
+        transform: translate(-50%, 0);
+        transform-origin: center bottom;
+    }
+
+    &-top-left {
+        transform: translate(0, 0);
+        transform-origin: left bottom;
+    }
+
+    &-top-right {
+        transform: translate(0, 0);
+        transform-origin: right bottom;
+    }
+}
+
+@keyframes mx-dropdown-in {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

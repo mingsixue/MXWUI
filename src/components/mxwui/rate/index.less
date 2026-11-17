@@ -1,0 +1,97 @@
+@import url('@common/common.less');
+
+.mx-rate {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    line-height: 1;
+
+    &.mx-rate-readonly {
+        .mx-rate-star-hit {
+            display: none;
+        }
+    }
+
+    .mx-rate-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .mx-rate-star {
+        position: relative;
+        display: inline-block;
+        flex-shrink: 0;
+        line-height: 1;
+        vertical-align: top;
+
+        &:last-child {
+            margin-right: 0 !important;
+        }
+    }
+
+    .mx-rate-star-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        line-height: 1;
+    }
+
+    .mx-rate-star-icon-void {
+        color: #EEEEEE;
+    }
+
+    /* 裁剪层：只负责按宽度裁切，不参与内容缩放 */
+    .mx-rate-star-clip {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* 选中星：始终保持整星尺寸，由上层 clip 裁切出半星 */
+    .mx-rate-star-icon-active {
+        color: #FF9F18;
+        flex-shrink: 0;
+    }
+
+    .mx-rate-char {
+        display: block;
+        width: 100%;
+        text-align: center;
+        line-height: 1;
+        font-size: inherit;
+        white-space: nowrap;
+    }
+
+    .mx-rate-star-hit {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        display: flex;
+    }
+
+    .mx-rate-star-hit-half,
+    .mx-rate-star-hit-full {
+        height: 100%;
+    }
+
+    .mx-rate-star-hit-half {
+        width: 50%;
+    }
+
+    .mx-rate-star-hit-half-right {
+        width: 50%;
+    }
+
+    .mx-rate-star-hit-full:not(.mx-rate-star-hit-half-right) {
+        width: 100%;
+    }
+}
